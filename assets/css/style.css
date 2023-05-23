@@ -1,1 +1,7 @@
-/* Initial Style.css */
+body{
+    background: rgba(11, 154, 179, 0.658) 
+}
+
+.main-container{
+    background: rgba(255, 255, 255, 0.37);
+}
