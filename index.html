@@ -9,26 +9,30 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
-<body class="d-flex flex-column align-items-center justify-content-center">
-    <div class="d-flex flex-column align-items-center h-75 w-75 m-5 p-3 main-container">
-        <div class="d-flex flex-row justify-content-md-evenly w-100">
-            <p class="fs-5 text-light">
-                Weather Forecast
-            </p>
+<body class="d-flex flex-column flex-wrap align-items-center justify-content-center">
+    <div class="d-flex flex-column flex-wrap align-items-center h-75 w-75 m-5 p-3 main-container">
+        <div class="d-flex flex-wrap flex-row justify-content-between align-items-center w-100">
+            <div class="p-3">
+                <p id="day" class="fs-1"></p>
+            </div>
             <div>
-                <select class="btn btn-primary" name="cities" id="city" onchange="getWeatherData()">
-                    <option value="chennai">chennai</option>
-                    <option value="coimbatore">coimbatore</option>
-                    <option value="london">london</option>
-                    <option value="seoul">seoul</option>
-                    <option value="mumbai">mumbai</option>
-                    <option value="paris">paris</option>
+                <select class="btn btn-city px-3" name="cities" id="city" onchange="getWeatherData()">
+                    <option value="chennai">Chennai</option>
+                    <option value="coimbatore">Coimbatore</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="seoul">Seoul</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="paris">Paris</option>
                 </select>
             </div>
         </div>
-        <div class="d-flex flex-row justify-content-md-between align-items-center w-100">
-            <div class="d-flex flex-row w-100 justify-content-md-start align-items-center current">
-                <img class="p-3" id="current-icon"></img>
+        <div class="d-flex flex-row flex-wrap justify-content-md-evenly align-items-center w-100">
+            <div class="d-flex flex-row flex-wrap justify-content-md-start align-items-center current">
+
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img class="" id="current-icon"></img>
+                    <p id="current-desc" ></p>
+                </div>
                 <div class="p-3 fs-5" id="current-temp"></div>
                 <div class="p-3 d-flex flex-column justify-content-md-start align-items-start">
                     <p id="current-pressure"></p>
@@ -36,15 +40,8 @@
                     <p id="current-wind"></p>
                 </div>
             </div>
-           <div>
-                <div class="p-3">
-                    <p class="fs-1">Weather</p>
-                    <p id="day"></p>
-                    <p id="current-desc"></p>
-                </div>
-           </div>
         </div>
-        <div class="d-flex flex-row w-100 justify-content-evenly container-daily">
+        <div class="d-flex flex-row flex-wrap w-100 justify-content-evenly align-items-center my-3 container-daily">
            
         </div>
     </div>

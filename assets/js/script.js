@@ -60,25 +60,41 @@ getAsyncCity("chennai")
         var container = document.getElementsByClassName("container-daily")[0];
         container.innerHTML = '';
 
-        for (var i = 0; i < 7; i++) {
+        var dayOf = dayOfWeek;
+
+        
+        for (var i = 1; i <= 7; i++) {
+            if(dayOf >= 6){
+                dayOf = -1;
+            }
             var dayDiv = document.createElement("div");
             dayDiv.classList.add("day");
+            dayDiv.className += " d-flex flex-column justify-content-center align-items-center p-2 m-4";
 
-            var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var dayName = document.createElement("p");
-            dayName.innerHTML = daysOfWeek[i];
+            if(i==1){
+                var dayName = document.createElement("p");
+                dayName.innerHTML = "Tomorrow";
+            }
+            else{
+                var dayName = document.createElement("p");
+                dayName.innerHTML = daysOfWeek[dayOf+1];
+            }
 
             var imgDiv = document.createElement("img");
             imgDiv.src = `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
 
+            
             var tempParagraph = document.createElement("p");
-            tempParagraph.textContent = data.daily[i].weather[0].description;
+            var mintemp = Math.round((data.daily[i].temp.min-273) * 100) / 100;
+            var maxtemp = Math.round((data.daily[i].temp.max-273) * 100) / 100;
+            tempParagraph.textContent = mintemp+ "℃ - "+maxtemp+"℃";
 
             dayDiv.appendChild(dayName);
             dayDiv.appendChild(imgDiv);
             dayDiv.appendChild(tempParagraph);
 
             container.appendChild(dayDiv);
+            dayOf++;
         }
     })
     .catch(
@@ -118,25 +134,40 @@ function getWeatherData(){
         var container = document.getElementsByClassName("container-daily")[0];
         container.innerHTML = '';
 
-        for (var i = 0; i < 7; i++) {
+        var dayOf = dayOfWeek;
+
+        for (var i = 1; i <= 7; i++) {
+            if(dayOf >= 7){
+                dayOf = 0;
+            }
             var dayDiv = document.createElement("div");
             dayDiv.classList.add("day");
+            dayDiv.className += " d-flex flex-column justify-content-center align-items-center p-2 m-4";
 
-            var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var dayName = document.createElement("p");
-            dayName.innerHTML = daysOfWeek[i];
+            if(i==1){
+                var dayName = document.createElement("p");
+                dayName.innerHTML = "Tomorrow";
+            }
+            else{
+                var dayName = document.createElement("p");
+                dayName.innerHTML = daysOfWeek[dayOf+1];
+            }
 
             var imgDiv = document.createElement("img");
             imgDiv.src = `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
 
+            
             var tempParagraph = document.createElement("p");
-            tempParagraph.textContent = data.daily[i].weather[0].description;
+            var mintemp = Math.round((data.daily[i].temp.min-273) * 100) / 100;
+            var maxtemp = Math.round((data.daily[i].temp.max-273) * 100) / 100;
+            tempParagraph.textContent = mintemp+ "℃ - "+maxtemp+"℃";
 
             dayDiv.appendChild(dayName);
             dayDiv.appendChild(imgDiv);
             dayDiv.appendChild(tempParagraph);
 
             container.appendChild(dayDiv);
+            dayOf++;
         }
     })
     .catch(

@@ -1,7 +1,24 @@
 body{
-    background: rgba(11, 154, 179, 0.658) 
+    background: url("https://media.istockphoto.com/id/1328689113/photo/summer-blue-sky-and-white-cloud-white-background-beautiful-clear-cloudy-in-sunlight-calm.jpg?s=612x612&w=0&k=20&c=37qEuwdxyQSx9kuS-_Gz0WiKFX6jMXZN9aRY47mN2vI=");
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
 
 .main-container{
-    background: rgba(255, 255, 255, 0.37);
+    background: rgba(255, 255, 255, 0.669);
+}
+
+.btn-city{
+    background-color: rgba(115, 204, 243, 0.669);
+}
+
+.btn-city option{
+    text-align: start;
+    background-color: transparent;
+}
+
+.day{
+    background-color: rgba(50, 50, 50, 0.08);
 }
